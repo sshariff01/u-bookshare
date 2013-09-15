@@ -10,6 +10,7 @@
     <%= yield %>
 
     <%= link_to("Home", {:action => 'index'}) %>
-    <%= link_to("Search for a Book", {:action => 'search'}) %>
+    <%= link_to("Search for a Book", {:controller => 'bookfinder', :action => 'search'}) %>
+    <%= link_to("Create a Posting", {:controller => 'posts', :action => 'new'}) %>
 </body>
 </html>

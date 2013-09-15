@@ -1,0 +1,60 @@
+<html>
+    <h1>Posts#index</h1>
+    <p>Find me in app/views/posts/new.html.erb</p>
+    
+    <p>This is where new posts can be created.</p>
+    
+    <table>
+	    <%= form_for(:post, :url => {:action => 'create'}) do |p| %>
+	    	<tr>
+	    		<td>
+	    			<%= label_tag(:title, "Book Title: ") %>
+    			</td>
+    			<td>
+	    			<%= p.text_field(:title) %>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td>
+	    			<%= label_tag(:edition, "Edition No.: ") %>
+    			</td>
+	    		<td>
+	    			<%= p.text_field(:edition) %>
+	    		</td>
+	    	</tr>
+	    	<tr>
+	    		<td>
+	    			<%= label_tag(:price, "Price: ") %>
+	    		</td>
+	    		<td>
+	    			<%= p.text_field(:price) %>
+	    		</td>	
+	    	</tr>
+	    	<tr>
+	    		<td>
+	    			<%= label_tag(:isbn, "ISBN: ") %>
+	    		</td>
+	    		<td>
+	    			<%= p.text_field(:isbn) %>
+    			</td>
+			</tr>
+	    	<tr>
+	    		<td>
+	    			Cover Type: 
+    			</td>
+    			<td>
+    				<%= p.radio_button :cover_type, '1' %> 
+				    <%= label :cover_type, 'Soft' %>
+				    <%= p.radio_button :cover_type, '2' %>
+				    <%= label :cover_type, 'Hard' %> 
+    			</td>
+			</tr>
+	    	<tr>
+	    		<td>
+	    			<%= submit_tag("Create Post") %>
+	    		</td>
+    		</tr>
+	    <% end %>
+    </table>
+</html>
+
