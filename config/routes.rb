@@ -14,7 +14,8 @@ Ubookshare::Application.routes.draw do
   match "/find" => "bookfinder#find", via: [:get, :post]
   match "/find/:id" => "bookfinder#find", via: [:get, :post]
   
-  resources :posts
+  match "/add" => "posts#new", via: :get
+  post "create" => "posts#create"
   
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
