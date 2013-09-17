@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915194901) do
+ActiveRecord::Schema.define(version: 20130917024051) do
 
   create_table "posts", force: true do |t|
-    t.string   "title",                  null: false
-    t.integer  "cover_type", default: 0
+    t.string   "title",                             null: false
+    t.integer  "cover_type",            default: 0
     t.integer  "edition"
-    t.float    "price",                  null: false
+    t.float    "price",                             null: false
     t.float    "isbn"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "phone",      limit: 10
   end
 
 end
