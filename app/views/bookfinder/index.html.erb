@@ -1,11 +1,14 @@
 <div id="main">
 	<div class="main-content">
-	    <h1>Welcome to UBookShare!</h1>
-	    <p>Find me in app/views/bookfinder/index.html.erb</p>
+	    <div class='main-banner'>
+	    	<%= image_tag('/images/ubs_logo_bw_v03_wcaption_624x298.png')%>
+	    </div>
 	    
-	    <p>This is where the introduction of the site goes and there should also be a header with all the tabs
-	    	Should be able to easily navigate from page to page, maybe even search for a book right here with
-	    	a search bar or something like they do on GoDaddy or Kijiji.</p>
+	    <%= form_tag({action: "find"}, {:class => "home-search"}) do %>
+	        <%= text_field_tag :isbn, nil, placeholder: 'Enter an ISBN Here', size: 94 %>
+	        <%= submit_tag("Search") %>
+	    <% end %>
+	    
 	</div>
 </div>
 
