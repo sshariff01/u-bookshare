@@ -2,15 +2,39 @@
 <html>
 <head>
   <title>UBookShare</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "public", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <%= yield %>
+	<div id="page" class="homeContainer">
+    	<header id="head" role="banner">
+    		<div class="head-inner">
+    			<hgroup id="logohead">
+    				<h1 id="site-title">
+						<%= link_to image_tag('/images/ubs_logo_bw_v03_115x52.png'), {:controller => 'bookfinder', :action => 'index'} %>
+    				</h1>
+    			</hgroup>
+    			<nav id="access" role="navigation">
+    				<div class="primary-nav-menu-container">
+    					<ul id="menu-primary-nav">
+    						<li id="menu-item">
+    							<%= link_to("Find a Book", {:controller => 'bookfinder', :action => 'search'}) %>
+    						</li>
+    						<li id="menu-item">
+    							<%= link_to("Sell a Book", {:controller => 'posts', :action => 'new'}) %>
+    						</li>
+    						<li id="menu-item">
+    							<%= link_to("Sign In", {:controller => 'bookfinder', :action => 'index'}, {:style => 'color: #cc81e2;'}) %>
+    						</li>
+    					</ul>
+    				</div>
+    			</nav>
+    		</div>
+    	</header>
 
-    <%= link_to("Home", {:action => 'index'}) %>
-    <%= link_to("Search for a Book", {:controller => 'bookfinder', :action => 'search'}) %>
-    <%= link_to("Create a Posting", {:controller => 'posts', :action => 'new'}) %>
+	    <%= yield %>
+	
+    </div>
 </body>
 </html>
