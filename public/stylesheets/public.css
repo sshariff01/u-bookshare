@@ -391,6 +391,8 @@ ul#social-media-list li#media-item-github:hover {
 	background: white;
 	max-width: 960px;
 	margin: 0 auto;
+	-moz-border-radius: 15px;
+	border-radius: 0.3em;
 }
 
 
