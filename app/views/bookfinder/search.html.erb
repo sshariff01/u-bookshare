@@ -1,14 +1,15 @@
-<html>
-    <h1>Bookfinder#search</h1>
-    <p>Find me in app/views/bookfinder/search.html.erb</p>
-	
-    <p>This is where the user is presented with a method to search through the Google API for books.</p>
-	
-	<%= form_tag(action: "find") do %>
-        <%= label_tag(:isbn, "ISBN:") %>
-        <%= text_field_tag(:isbn) %>
-        <%= submit_tag("Search") %>
-    <% end %>
-	
-</html>
+<div id="main">
+	<div class="main-content">
+	    <h1>Bookfinder#search</h1>
+	    <p>Find me in app/views/bookfinder/search.html.erb</p>
+		
+	    <p>This is where the user is presented with a method to search through the Google API for books.</p>
+		
+		<%= form_tag(action: "find") do %>
+	        <%= label_tag(:isbn, "ISBN:") %>
+	        <%= text_field_tag(:isbn) %>
+	        <%= submit_tag("Search") %>
+	    <% end %>
+	</div>
+</div>
 
