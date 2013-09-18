@@ -10,7 +10,7 @@ import android.view.Window;
 public class SplashScreen extends Activity {
 
 	protected boolean _active = true;
-	protected int _splashTime = 3000; // time in ms
+	protected int _splashTime = 2500; // time in ms
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
