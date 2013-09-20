@@ -1059,9 +1059,12 @@ containing a value of this type.
     <string name="gradient_end">#FFFFFF</string> 
          */
         public static final int app_name=0x7f09000d;
+        public static final int cancel=0x7f090016;
         public static final int hello_world=0x7f09000f;
+        public static final int ok=0x7f090015;
         public static final int search_author=0x7f090014;
         public static final int search_isbn=0x7f090013;
+        public static final int test_msg=0x7f090017;
     }
     public static final class style {
         /** 

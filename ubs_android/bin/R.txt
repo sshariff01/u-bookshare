@@ -351,9 +351,12 @@ int string abs__shareactionprovider_share_with 0x7f090006
 int string abs__shareactionprovider_share_with_application 0x7f090007
 int string action_settings 0x7f09000e
 int string app_name 0x7f09000d
+int string cancel 0x7f090016
 int string hello_world 0x7f09000f
+int string ok 0x7f090015
 int string search_author 0x7f090014
 int string search_isbn 0x7f090013
+int string test_msg 0x7f090017
 int style AppBaseTheme 0x7f0a0059
 int style AppTheme 0x7f0a005a
 int style Sherlock___TextAppearance_Small 0x7f0a0046

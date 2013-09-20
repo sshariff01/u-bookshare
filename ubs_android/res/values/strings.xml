@@ -14,4 +14,7 @@
     <string name="Fragment3">This is ActionBarSherlock Fragment 3</string>
     <string name="search_isbn">Enter ISBN</string>
     <string name="search_author">Enter Author Name</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="test_msg">This is a test message</string>
 </resources>

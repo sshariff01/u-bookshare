@@ -2,6 +2,7 @@ package com.ubookshare.ubs_android;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,8 @@ public class FragmentTab1 extends SherlockFragment {
             }
 
 			private void DoIt(View v) {
+				DialogFragment newFragment = new TestDialogFragment();
+			    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "testdialog");
   			}
         });
         

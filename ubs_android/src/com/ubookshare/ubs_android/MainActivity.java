@@ -1,6 +1,7 @@
 package com.ubookshare.ubs_android;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -11,7 +12,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
  
-public class MainActivity extends SherlockFragmentActivity {
+public class MainActivity extends SherlockFragmentActivity implements TestDialogFragment.TestDialogListener {
  
     // Declare Variables
     ActionBar mActionBar;
@@ -92,5 +93,25 @@ public class MainActivity extends SherlockFragmentActivity {
         inflater.inflate(R.menu.main, menu);
         return true;
     }
+    
+    public void showTestDialog() {
+    	// Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new TestDialogFragment();
+        dialog.show(getSupportFragmentManager(), "TestDialogFragment");
+    }
+
+
+	@Override
+	public void onDialogPositiveClick(DialogFragment dialog) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onDialogNegativeClick(DialogFragment dialog) {
+		// TODO Auto-generated method stub
+		
+	}
  
 }
