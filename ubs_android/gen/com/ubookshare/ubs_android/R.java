@@ -915,9 +915,10 @@ containing a value of this type.
         public static final int abs__toast_frame=0x7f02006f;
         public static final int edittext_border=0x7f020070;
         public static final int ic_launcher=0x7f020071;
+        public static final int splash=0x7f020072;
     }
     public static final class id {
-        public static final int AutoCompleteTextView2=0x7f040034;
+        public static final int AutoCompleteTextView2=0x7f040035;
         public static final int abs__action_bar=0x7f040020;
         public static final int abs__action_bar_container=0x7f04001f;
         public static final int abs__action_bar_subtitle=0x7f040011;
@@ -957,12 +958,13 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f040036;
-        public static final int autoCompleteTextView1=0x7f040033;
-        public static final int button1=0x7f040035;
+        public static final int action_settings=0x7f040037;
+        public static final int autoCompleteTextView1=0x7f040034;
+        public static final int button1=0x7f040036;
         public static final int disableHome=0x7f040009;
         public static final int edit_query=0x7f040026;
         public static final int homeAsUp=0x7f040006;
+        public static final int imgLogo=0x7f040033;
         public static final int listMode=0x7f040002;
         public static final int normal=0x7f040001;
         public static final int pager=0x7f040032;
@@ -999,11 +1001,12 @@ containing a value of this type.
         public static final int abs__search_view=0x7f030013;
         public static final int abs__simple_dropdown_hint=0x7f030014;
         public static final int activity_main=0x7f030015;
-        public static final int fragmenttab1=0x7f030016;
-        public static final int fragmenttab2=0x7f030017;
-        public static final int fragmenttab3=0x7f030018;
-        public static final int sherlock_spinner_dropdown_item=0x7f030019;
-        public static final int sherlock_spinner_item=0x7f03001a;
+        public static final int activity_splash=0x7f030016;
+        public static final int fragmenttab1=0x7f030017;
+        public static final int fragmenttab2=0x7f030018;
+        public static final int fragmenttab3=0x7f030019;
+        public static final int sherlock_spinner_dropdown_item=0x7f03001a;
+        public static final int sherlock_spinner_item=0x7f03001b;
     }
     public static final class menu {
         public static final int main=0x7f0b0000;
