@@ -7,6 +7,9 @@ import android.support.v4.view.ViewPager;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
  
 public class MainActivity extends SherlockFragmentActivity {
  
@@ -23,6 +26,7 @@ public class MainActivity extends SherlockFragmentActivity {
  
         // Activate Navigation Mode Tabs
         mActionBar = getSupportActionBar();
+        mActionBar.setDisplayShowTitleEnabled(false);
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
  
         // Locate ViewPager in activity_main.xml
@@ -68,17 +72,25 @@ public class MainActivity extends SherlockFragmentActivity {
         };
  
         // Create first Tab
-        tab = mActionBar.newTab().setText("Tab1").setTabListener(tabListener);
+        tab = mActionBar.newTab().setText("Search").setTabListener(tabListener);
         mActionBar.addTab(tab);
  
         // Create second Tab
-        tab = mActionBar.newTab().setText("Tab2").setTabListener(tabListener);
+        tab = mActionBar.newTab().setText("Sell").setTabListener(tabListener);
         mActionBar.addTab(tab);
  
         // Create third Tab
-        tab = mActionBar.newTab().setText("Tab3").setTabListener(tabListener);
+        tab = mActionBar.newTab().setText("Help").setTabListener(tabListener);
         mActionBar.addTab(tab);
  
+    }
+    
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
     }
  
 }

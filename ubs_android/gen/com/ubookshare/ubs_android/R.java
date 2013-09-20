@@ -686,10 +686,13 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f060005;
         public static final int abs__bright_foreground_holo_dark=0x7f060002;
         public static final int abs__bright_foreground_holo_light=0x7f060003;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f060006;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f060007;
-        public static final int abs__primary_text_holo_dark=0x7f060008;
-        public static final int abs__primary_text_holo_light=0x7f060009;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f060009;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f06000a;
+        public static final int abs__primary_text_holo_dark=0x7f06000b;
+        public static final int abs__primary_text_holo_light=0x7f06000c;
+        public static final int black=0x7f060007;
+        public static final int blue_button_border=0x7f060008;
+        public static final int white=0x7f060006;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -910,9 +913,11 @@ containing a value of this type.
         public static final int abs__textfield_searchview_right_holo_dark=0x7f02006d;
         public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
         public static final int abs__toast_frame=0x7f02006f;
-        public static final int ic_launcher=0x7f020070;
+        public static final int edittext_border=0x7f020070;
+        public static final int ic_launcher=0x7f020071;
     }
     public static final class id {
+        public static final int AutoCompleteTextView2=0x7f040034;
         public static final int abs__action_bar=0x7f040020;
         public static final int abs__action_bar_container=0x7f04001f;
         public static final int abs__action_bar_subtitle=0x7f040011;
@@ -952,7 +957,9 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f040033;
+        public static final int action_settings=0x7f040036;
+        public static final int autoCompleteTextView1=0x7f040033;
+        public static final int button1=0x7f040035;
         public static final int disableHome=0x7f040009;
         public static final int edit_query=0x7f040026;
         public static final int homeAsUp=0x7f040006;
@@ -1045,8 +1052,13 @@ containing a value of this type.
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090007;
         public static final int action_settings=0x7f09000e;
+        /**  <string name="gradient_start">#FFFFFF</string>
+    <string name="gradient_end">#FFFFFF</string> 
+         */
         public static final int app_name=0x7f09000d;
         public static final int hello_world=0x7f09000f;
+        public static final int search_author=0x7f090014;
+        public static final int search_isbn=0x7f090013;
     }
     public static final class style {
         /** 
