@@ -1064,7 +1064,8 @@ containing a value of this type.
         public static final int ok=0x7f090015;
         public static final int search_author=0x7f090014;
         public static final int search_isbn=0x7f090013;
-        public static final int test_msg=0x7f090017;
+        public static final int test_msg=0x7f090018;
+        public static final int test_title=0x7f090017;
     }
     public static final class style {
         /** 

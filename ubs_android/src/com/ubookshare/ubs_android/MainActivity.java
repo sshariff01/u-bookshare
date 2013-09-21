@@ -13,7 +13,6 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
  
 public class MainActivity extends SherlockFragmentActivity implements TestDialogFragment.TestDialogListener {
- 
     // Declare Variables
     ActionBar mActionBar;
     ViewPager mPager;
