@@ -12,7 +12,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
  
-public class MainActivity extends SherlockFragmentActivity implements TestDialogFragment.TestDialogListener {
+public class MainActivity extends SherlockFragmentActivity implements AlertDialogFragment.AlertDialogListener {
     // Declare Variables
     ActionBar mActionBar;
     ViewPager mPager;
@@ -95,7 +95,7 @@ public class MainActivity extends SherlockFragmentActivity implements TestDialog
     
     public void showTestDialog() {
     	// Create an instance of the dialog fragment and show it
-        DialogFragment dialog = new TestDialogFragment();
+        DialogFragment dialog = new AlertDialogFragment();
         dialog.show(getSupportFragmentManager(), "TestDialogFragment");
     }
 

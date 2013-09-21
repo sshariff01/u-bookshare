@@ -18,9 +18,13 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +57,9 @@ public class FragmentTab1 extends SherlockFragment {
 				
 				new AsyncTaskApiRequest().execute(urlStr);
 				
-				DialogFragment newFragment = new TestDialogFragment();
+//				new MyAlertDialogFragment();
+//				DialogFragment newFragment = MyAlertDialogFragment.newInstance(1);
+				DialogFragment newFragment = AlertDialogFragment.newInstance("Hello world");
 			    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "testdialog");
   			}
 
@@ -167,5 +173,5 @@ public class FragmentTab1 extends SherlockFragment {
 	        return sb.toString();
 	    }
 	}
-	 
+    
 }
