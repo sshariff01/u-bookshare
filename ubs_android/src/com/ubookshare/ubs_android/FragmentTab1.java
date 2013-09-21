@@ -4,25 +4,27 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
+
+import org.apache.http.conn.ssl.SSLSocketFactory;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONObject;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.params.BasicHttpParams;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.PopupWindow;
 
 import com.actionbarsherlock.app.SherlockFragment;
  
@@ -83,15 +85,12 @@ public class FragmentTab1 extends SherlockFragment {
 			String isbn = "9780471697909";
 			String urlStr = endpointUrl + findAction + isbn;
 			HttpResponse response = null;
-			String result;
-			
-			result = makeApiRequest(urlStr, response);
+			String result = makeApiRequest(urlStr, response);
 		
 		    // Execute HTTP requests here, with one url(urls[0]),
 		    // or many urls using the urls table
 		    // Save result in myresult
-		
-		    return response.toString();
+			return result;
 		
 		}
 		
@@ -103,7 +102,13 @@ public class FragmentTab1 extends SherlockFragment {
 		}
 		
 		private String makeApiRequest(String url, HttpResponse response) {
-			HttpClient httpclient = new DefaultHttpClient();
+			BasicHttpParams params = new BasicHttpParams();
+			SchemeRegistry schemeRegistry = new SchemeRegistry();
+			schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
+			final SSLSocketFactory sslSocketFactory = SSLSocketFactory.getSocketFactory();
+			schemeRegistry.register(new Scheme("https", sslSocketFactory, 443));
+			ClientConnectionManager cm = new ThreadSafeClientConnManager(params, schemeRegistry);
+			DefaultHttpClient httpclient = new DefaultHttpClient(cm, params);
 
 		    // Prepare a request object
 		    HttpGet httpget = new HttpGet(url); 
@@ -113,20 +118,18 @@ public class FragmentTab1 extends SherlockFragment {
 		    
 		    try {
 		        response = httpclient.execute(httpget);
-//		        // Examine the response status
-//		        Log.i("Praeda",response.getStatusLine().toString());
 
 		        // Get hold of the response entity
 		        HttpEntity entity = response.getEntity();
+		        
 		        // If the response does not enclose an entity, there is no need
 		        // to worry about connection release
-
 		        if (entity != null) {
 
 		            // A Simple JSON Response Read
 		            InputStream instream = entity.getContent();
 		            result = convertStreamToString(instream);
-		            // now you have the string representation of the HTML request
+		            // Now you have the string representation of the HTML request
 		            instream.close();
 		        }
 		    
