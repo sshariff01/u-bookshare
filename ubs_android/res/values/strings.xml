@@ -3,8 +3,9 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="blue_button_border">#84d8ff</color>
-    <!-- <string name="gradient_start">#FFFFFF</string>
-    <string name="gradient_end">#FFFFFF</string> -->
+    
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
 
     <string name="app_name">UBookShare</string>
     <string name="action_settings">Settings</string>
@@ -14,6 +15,9 @@
     <string name="Fragment3">This is ActionBarSherlock Fragment 3</string>
     <string name="search_isbn">Enter ISBN</string>
     <string name="search_author">Enter Author Name</string>
-    <string name="ok">Ok</string>
-    <string name="cancel">Cancel</string>
+    
+    <string name="enter_book_title">Book Title</string>
+    <string name="enter_book_price">Price</string>
+    <string name="enter_book_isbn">ISBN-10 or ISBN-13</string>
+    
 </resources>

@@ -5,7 +5,7 @@
     android:background="@color/white" >
 
     <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView1"
+        android:id="@+id/searchIsbn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -15,7 +15,8 @@
         android:cursorVisible="true"
         android:ems="10"
         android:hint="@string/search_isbn"
-        android:inputType="textCapWords"
+        android:inputType="number"
+        android:maxLength="13"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textColor="@color/black"
@@ -48,8 +49,8 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/autoCompleteTextView1"
-        android:layout_below="@+id/autoCompleteTextView1"
+        android:layout_alignRight="@+id/searchIsbn"
+        android:layout_below="@+id/searchIsbn"
         android:text="Search"
         android:textColor="@color/black"
         android:textSize="15dp" />

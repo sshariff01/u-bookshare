@@ -49,7 +49,7 @@ public class FragmentTab1 extends SherlockFragment {
         // Get the view from fragmenttab1.xml
         View view = inflater.inflate(R.layout.fragmenttab1, container, false);
         final Button button = (Button) view.findViewById(R.id.button1);
-        final AutoCompleteTextView acTextView = (AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView1);
+        final AutoCompleteTextView acTextView = (AutoCompleteTextView) view.findViewById(R.id.searchIsbn);
         
         button.setOnClickListener(new View.OnClickListener() {
             @Override

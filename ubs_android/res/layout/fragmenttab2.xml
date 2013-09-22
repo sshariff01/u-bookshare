@@ -3,12 +3,89 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white" >
- 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <AutoCompleteTextView
+        android:id="@+id/bookTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/Fragment2" />
- 
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:cursorVisible="true"
+        android:ems="10"
+        android:hint="@string/enter_book_title"
+        android:inputType="textCapWords"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@null"
+        android:textSize="16dp" >
+
+        <requestFocus />
+    </AutoCompleteTextView>
+    
+    <TextView
+        android:id="@+id/priceSymbol"
+        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/bookTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bookTitle"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="20dp"
+        android:text="$"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black" />
+    
+    <EditText
+        android:id="@+id/bookPrice"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bookTitle"
+        android:layout_marginLeft="-15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/priceSymbol"
+        android:cursorVisible="true"
+        android:ems="10"
+        android:hint="@string/enter_book_price"
+        android:inputType="textCapWords"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@null"
+        android:textSize="16dp" />
+    
+    <AutoCompleteTextView
+        android:id="@+id/bookIsbn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bookPrice"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/enter_book_isbn"
+        android:inputType="number"
+        android:maxLength="13"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/black"
+        android:textCursorDrawable="@null"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/postBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/bookIsbn"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Post"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
 </RelativeLayout>
