@@ -18,12 +18,13 @@ public class AlertDialogFragment extends DialogFragment {
     
     // Use this instance of the interface to deliver action events
     AlertDialogListener mListener;
-    String mTitle;
+    String mMessage, mTitle;
     
-    public static AlertDialogFragment newInstance(String title) {
+    public static AlertDialogFragment newInstance(String title, String message) {
     	AlertDialogFragment frag = new AlertDialogFragment();
         Bundle args = new Bundle();
         args.putString("title", title);
+        args.putString("message", message);
         frag.setArguments(args);
         return frag;
     }
@@ -45,22 +46,24 @@ public class AlertDialogFragment extends DialogFragment {
     
 	@Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+		mMessage = getArguments().getString("message");
 		mTitle = getArguments().getString("title");
 		
         // Use the Builder class for convenient dialog construction
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.test_title)
-        	   .setMessage(mTitle)
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(mTitle)
+        	   .setMessage(mMessage)
                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        // Ok dialog
-                	   mListener.onDialogPositiveClick(AlertDialogFragment.this);
+//                	   mListener.onDialogPositiveClick(AlertDialogFragment.this);
+                	   dialog.dismiss();
                    }
                })
                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        // User cancelled the dialog
-                	   mListener.onDialogPositiveClick(AlertDialogFragment.this);
+//                	   mListener.onDialogPositiveClick(AlertDialogFragment.this);
                    }
                });
         // Create the AlertDialog object and return it

@@ -10,7 +10,6 @@ import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
  
 public class MainActivity extends SherlockFragmentActivity implements AlertDialogFragment.AlertDialogListener {
     // Declare Variables

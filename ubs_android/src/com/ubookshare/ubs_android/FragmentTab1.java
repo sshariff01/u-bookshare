@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import org.apache.http.conn.ssl.SSLSocketFactory;
 
@@ -18,9 +21,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -28,7 +28,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.actionbarsherlock.app.SherlockFragment;
  
@@ -36,34 +38,42 @@ public class FragmentTab1 extends SherlockFragment {
 	// Declare Variables
 	String endpointUrl = "http://192.168.1.108:3000";
 	String findAction = "/find/";
-	String isbn;
+	String isbnStr = new String();
+	String response = new String();
+	EditText mEdit;
+//	AutoCompleteTextView acTextView;
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         // Get the view from fragmenttab1.xml
         View view = inflater.inflate(R.layout.fragmenttab1, container, false);
+        final Button button = (Button) view.findViewById(R.id.button1);
+        final AutoCompleteTextView acTextView = (AutoCompleteTextView) view.findViewById(R.id.autoCompleteTextView1);
         
-        Button button= (Button) view.findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DoIt(v);
+				isbnStr = acTextView.getText().toString();
+        		DoIt(v);
             }
 
 			private void DoIt(View v) {
-				isbn = "9780471697909";
-				String urlStr = (endpointUrl + findAction + isbn);
+				if (!isbnStr.isEmpty()) {
+					String urlStr = (endpointUrl + findAction + isbnStr);
+					try {
+						new AsyncTaskApiRequest().execute(urlStr).get(1000, TimeUnit.MILLISECONDS);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				} else {
+					response = "Please specify the ISBN you would like to search.";
+					String title = "Oops!";
+					DialogFragment newFragment = AlertDialogFragment.newInstance(title, response);
+				    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "testdialog");
+				}
 				
-				new AsyncTaskApiRequest().execute(urlStr);
-				
-//				new MyAlertDialogFragment();
-//				DialogFragment newFragment = MyAlertDialogFragment.newInstance(1);
-				DialogFragment newFragment = AlertDialogFragment.newInstance("Hello world");
-			    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "testdialog");
   			}
-
-		    
 		});
         
         return view;
@@ -88,26 +98,28 @@ public class FragmentTab1 extends SherlockFragment {
 		@Override
 		protected String doInBackground(String... urls) {
 		    // Task starts executing.
-			String isbn = "9780471697909";
-			String urlStr = endpointUrl + findAction + isbn;
-			HttpResponse response = null;
-			String result = makeApiRequest(urlStr, response);
+			String urlStr = endpointUrl + findAction + isbnStr;
+			String response = makeApiRequest(urlStr);
 		
 		    // Execute HTTP requests here, with one url(urls[0]),
 		    // or many urls using the urls table
 		    // Save result in myresult
-			return result;
+			return response;
 		
 		}
 		
 		protected void onPostExecute(String result) {
-		           //Do modifications you want after everything is finished
-		           //Like re-enable the button, and/or hide a progressbar
-		           //And of course do what you want with your result got from http-req
-		
+            //Do modifications you want after everything is finished
+            //Like re-enable the button, and/or hide a progressbar
+            //And of course do what you want with your result got from http-req
+			String title = "Result";
+			DialogFragment newFragment = AlertDialogFragment.newInstance(title, result);
+		    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "testdialog");
+		    Log.i("onPostExecute", "SHOW DIALOG");
 		}
 		
-		private String makeApiRequest(String url, HttpResponse response) {
+		private String makeApiRequest(String url) {
+			HttpResponse response = null;
 			BasicHttpParams params = new BasicHttpParams();
 			SchemeRegistry schemeRegistry = new SchemeRegistry();
 			schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));

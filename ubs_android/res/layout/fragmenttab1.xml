@@ -25,7 +25,7 @@
         <requestFocus />
     </AutoCompleteTextView>
 
-    <AutoCompleteTextView
+    <!-- <AutoCompleteTextView
         android:id="@+id/AutoCompleteTextView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         android:paddingRight="10dp"
         android:textColor="@color/black"
         android:textCursorDrawable="@null"
-        android:textSize="16dp" />
+        android:textSize="16dp" /> -->
 
     <Button
         android:id="@+id/button1"
