@@ -48,10 +48,10 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/AutoCompleteTextView2"
-        android:layout_below="@+id/AutoCompleteTextView2"
+        android:layout_alignRight="@+id/autoCompleteTextView1"
+        android:layout_below="@+id/autoCompleteTextView1"
+        android:text="Search"
         android:textColor="@color/black"
-        android:textSize="15dp"
-        android:text="Search" />
+        android:textSize="15dp" />
 
 </RelativeLayout>
