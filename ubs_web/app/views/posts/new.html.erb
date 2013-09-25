@@ -5,7 +5,7 @@
 	    
 	    <p>This is where new posts can be created.</p>
 	    
-	    <%= form_for(:post, action: "create") do |p| %>
+	    <%= form_for :post, url: {action: "create"} do |p| %>
 		<table>    
 	    	<tr>
 	    		<td>
