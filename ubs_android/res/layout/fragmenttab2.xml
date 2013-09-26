@@ -32,27 +32,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bookTitle"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="23dp"
         android:layout_marginRight="0dp"
         android:layout_marginTop="20dp"
         android:text="$"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/black" />
+        android:textColor="@color/gray" />
     
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/bookPrice"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bookTitle"
-        android:layout_marginLeft="-15dp"
+        android:layout_marginLeft="-16dp"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/priceSymbol"
         android:cursorVisible="true"
         android:ems="10"
         android:hint="@string/enter_book_price"
-        android:inputType="textCapWords"
-        android:paddingLeft="20dp"
+        android:inputType="numberDecimal"
+        android:paddingLeft="22dp"
         android:paddingRight="10dp"
         android:textColor="@color/black"
         android:textCursorDrawable="@null"
@@ -75,13 +75,22 @@
         android:textColor="@color/black"
         android:textCursorDrawable="@null"
         android:textSize="16dp" />
+    
+    <Spinner
+	    android:id="@+id/coverTypeSpinner"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+        android:layout_below="@+id/bookIsbn"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp" />
 
     <Button
-        android:id="@+id/postBook"
+        android:id="@+id/postButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/bookIsbn"
+        android:layout_below="@+id/coverTypeSpinner"
         android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
         android:text="Post"

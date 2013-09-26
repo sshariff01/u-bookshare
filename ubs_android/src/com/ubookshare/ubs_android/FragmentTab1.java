@@ -36,10 +36,10 @@ import com.actionbarsherlock.app.SherlockFragment;
  
 public class FragmentTab1 extends SherlockFragment {
 	// Declare Variables
-	String endpointUrl = "http://192.168.1.108:3000";
+	String endpointUrl = "http://9.26.186.182:3000";
 	String findAction = "/find/";
 	String isbnStr = new String();
-	String response = new String();
+	String title, response = new String();
 	EditText mEdit;
 //	AutoCompleteTextView acTextView;
 	
@@ -48,17 +48,17 @@ public class FragmentTab1 extends SherlockFragment {
             Bundle savedInstanceState) {
         // Get the view from fragmenttab1.xml
         View view = inflater.inflate(R.layout.fragmenttab1, container, false);
-        final Button button = (Button) view.findViewById(R.id.button1);
-        final AutoCompleteTextView acTextView = (AutoCompleteTextView) view.findViewById(R.id.searchIsbn);
+        final Button button = (Button) view.findViewById(R.id.searchButton);
+        final AutoCompleteTextView isbnACTextView = (AutoCompleteTextView) view.findViewById(R.id.searchIsbn);
         
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-				isbnStr = acTextView.getText().toString();
-        		DoIt(v);
+				isbnStr = isbnACTextView.getText().toString();
+        		searchByIsbn(v);
             }
 
-			private void DoIt(View v) {
+			private void searchByIsbn(View v) {
 				if (!isbnStr.isEmpty()) {
 					String urlStr = (endpointUrl + findAction + isbnStr);
 					try {
@@ -67,10 +67,10 @@ public class FragmentTab1 extends SherlockFragment {
 						e.printStackTrace();
 					}
 				} else {
+					title = "Oops!";
 					response = "Please specify the ISBN you would like to search.";
-					String title = "Oops!";
 					DialogFragment newFragment = AlertDialogFragment.newInstance(title, response);
-				    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "testdialog");
+				    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "searcherrordialog");
 				}
 				
   			}
@@ -112,7 +112,7 @@ public class FragmentTab1 extends SherlockFragment {
             //Do modifications you want after everything is finished
             //Like re-enable the button, and/or hide a progressbar
             //And of course do what you want with your result got from http-req
-			String title = "Result";
+			title = "Result";
 			DialogFragment newFragment = AlertDialogFragment.newInstance(title, result);
 		    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "testdialog");
 		    Log.i("onPostExecute", "SHOW DIALOG");

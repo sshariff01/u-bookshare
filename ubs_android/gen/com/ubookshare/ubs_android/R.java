@@ -8,6 +8,9 @@
 package com.ubookshare.ubs_android;
 
 public final class R {
+    public static final class array {
+        public static final int cover_types_array=0x7f0b0000;
+    }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -686,12 +689,13 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f060005;
         public static final int abs__bright_foreground_holo_dark=0x7f060002;
         public static final int abs__bright_foreground_holo_light=0x7f060003;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f060009;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f06000a;
-        public static final int abs__primary_text_holo_dark=0x7f06000b;
-        public static final int abs__primary_text_holo_light=0x7f06000c;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f06000a;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f06000b;
+        public static final int abs__primary_text_holo_dark=0x7f06000c;
+        public static final int abs__primary_text_holo_light=0x7f06000d;
         public static final int black=0x7f060007;
-        public static final int blue_button_border=0x7f060008;
+        public static final int blue_button_border=0x7f060009;
+        public static final int gray=0x7f060008;
         public static final int white=0x7f060006;
     }
     public static final class dimen {
@@ -913,9 +917,8 @@ containing a value of this type.
         public static final int abs__textfield_searchview_right_holo_dark=0x7f02006d;
         public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
         public static final int abs__toast_frame=0x7f02006f;
-        public static final int edittext_border=0x7f020070;
-        public static final int ic_launcher=0x7f020071;
-        public static final int splash=0x7f020072;
+        public static final int ic_launcher=0x7f020070;
+        public static final int splash=0x7f020071;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040020;
@@ -957,11 +960,11 @@ containing a value of this type.
         public static final int abs__textButton=0x7f040013;
         public static final int abs__title=0x7f04001b;
         public static final int abs__up=0x7f04000b;
-        public static final int action_settings=0x7f04003b;
+        public static final int action_settings=0x7f04003d;
         public static final int bookIsbn=0x7f040039;
         public static final int bookPrice=0x7f040038;
         public static final int bookTitle=0x7f040036;
-        public static final int button1=0x7f040035;
+        public static final int coverTypeSpinner=0x7f04003a;
         public static final int disableHome=0x7f040009;
         public static final int edit_query=0x7f040026;
         public static final int homeAsUp=0x7f040006;
@@ -969,13 +972,15 @@ containing a value of this type.
         public static final int listMode=0x7f040002;
         public static final int normal=0x7f040001;
         public static final int pager=0x7f040032;
-        public static final int postBook=0x7f04003a;
+        public static final int postButton=0x7f04003b;
         public static final int priceSymbol=0x7f040037;
+        public static final int searchButton=0x7f040035;
         public static final int searchIsbn=0x7f040034;
         public static final int showCustom=0x7f040008;
         public static final int showHome=0x7f040005;
         public static final int showTitle=0x7f040007;
         public static final int tabMode=0x7f040003;
+        public static final int textViewSpinnerItem=0x7f04003c;
         public static final int useLogo=0x7f040004;
         public static final int wrap_content=0x7f040000;
     }
@@ -1011,14 +1016,13 @@ containing a value of this type.
         public static final int fragmenttab3=0x7f030019;
         public static final int sherlock_spinner_dropdown_item=0x7f03001a;
         public static final int sherlock_spinner_item=0x7f03001b;
+        public static final int spinner_item_text=0x7f03001c;
     }
     public static final class menu {
-        public static final int main=0x7f0b0000;
+        public static final int main=0x7f0c0000;
     }
     public static final class string {
-        public static final int Fragment1=0x7f090012;
-        public static final int Fragment2=0x7f090013;
-        public static final int Fragment3=0x7f090014;
+        public static final int Fragment3=0x7f090012;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abs__action_bar_home_description=0x7f090000;
@@ -1061,13 +1065,14 @@ containing a value of this type.
         public static final int action_settings=0x7f090010;
         public static final int app_name=0x7f09000f;
         public static final int cancel=0x7f09000e;
-        public static final int enter_book_isbn=0x7f090019;
-        public static final int enter_book_price=0x7f090018;
-        public static final int enter_book_title=0x7f090017;
+        public static final int country_prompt=0x7f090018;
+        public static final int enter_book_isbn=0x7f090017;
+        public static final int enter_book_price=0x7f090016;
+        public static final int enter_book_title=0x7f090015;
         public static final int hello_world=0x7f090011;
         public static final int ok=0x7f09000d;
-        public static final int search_author=0x7f090016;
-        public static final int search_isbn=0x7f090015;
+        public static final int search_author=0x7f090014;
+        public static final int search_isbn=0x7f090013;
     }
     public static final class style {
         /** 
@@ -1107,6 +1112,7 @@ containing a value of this type.
         public static final int Sherlock___Widget_Holo_ListView=0x7f0a0026;
         public static final int Sherlock___Widget_Holo_Spinner=0x7f0a0023;
         public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0a0033;
+        public static final int SpinnerTextViewItem=0x7f0a005b;
         public static final int TextAppearance_Sherlock=0x7f0a004a;
         public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0a004e;
         public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0a0050;
