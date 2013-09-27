@@ -27459,3 +27459,210 @@ Started POST "/find" for 127.0.0.1 at 2013-09-26 15:15:23 -0400
 Processing by BookfinderController#find as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"87ZZKBxfejMvIIcRxJB78RYLt1aYHuPHaHSJ9WRS+FI=", "isbn"=>"0786158964", "commit"=>"Search"}
 Completed 200 OK in 927ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/add" for 127.0.0.1 at 2013-09-26 17:51:35 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (581.0ms)
+Completed 200 OK in 1294ms (Views: 1276.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-26 17:51:36 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-26 17:51:36 -0400
+
+
+Started GET "/assets/bookfinder.js?body=1" for 127.0.0.1 at 2013-09-26 17:51:36 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2013-09-26 17:51:36 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2013-09-26 17:51:37 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-26 17:51:37 -0400
+
+
+Started POST "/find" for 127.0.0.1 at 2013-09-26 17:52:11 -0400
+Processing by BookfinderController#find as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"87ZZKBxfejMvIIcRxJB78RYLt1aYHuPHaHSJ9WRS+FI=", "isbn"=>"9780747532699", "commit"=>"Search"}
+Completed 200 OK in 1105ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/find" for 127.0.0.1 at 2013-09-26 17:56:09 -0400
+Processing by BookfinderController#find as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"87ZZKBxfejMvIIcRxJB78RYLt1aYHuPHaHSJ9WRS+FI=", "isbn"=>"9780747532699", "commit"=>"Search"}
+Completed 200 OK in 349ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create" for 9.26.184.224 at 2013-09-26 17:58:32 -0400
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"device"=>"Android", "edition"=>"1", "cover_type"=>"2", "title"=>"Harry Potter", "price"=>"10", "isbn"=>"1234567890"}}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (34.6ms)[0m  INSERT INTO `posts` (`cover_type`, `created_at`, `device`, `edition`, `isbn`, `price`, `title`, `updated_at`) VALUES (2, '2013-09-26 21:58:32', 'Android', 1, 1234567890.0, 10.0, 'Harry Potter', '2013-09-26 21:58:32')
+  [1m[36m (22.7ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 61ms (Views: 0.4ms | ActiveRecord: 57.5ms)
+
+
+Started GET "/" for 172.17.31.146 at 2013-09-27 19:02:58 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by BookfinderController#index as HTML
+  Rendered bookfinder/index.html.erb within layouts/application (61.7ms)
+Completed 200 OK in 607ms (Views: 501.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 172.17.31.146 at 2013-09-27 19:04:55 -0400
+Processing by BookfinderController#index as HTML
+  Rendered bookfinder/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.31.146 at 2013-09-27 19:04:55 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.31.146 at 2013-09-27 19:04:55 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.31.146 at 2013-09-27 19:04:55 -0400
+
+
+Started GET "/assets/bookfinder.js?body=1" for 172.17.31.146 at 2013-09-27 19:04:56 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 172.17.31.146 at 2013-09-27 19:04:56 -0400
+
+
+Started GET "/assets/application.js?body=1" for 172.17.31.146 at 2013-09-27 19:04:56 -0400
+
+
+Started GET "/assets/" for 172.17.31.146 at 2013-09-27 19:04:56 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/shoabe/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/shoabe/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/shoabe/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/shoabe/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/shoabe/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /Users/shoabe/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (96.3ms)
+  Rendered /Users/shoabe/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (136.1ms)
+
+
+Started GET "/" for 172.17.153.97 at 2013-09-27 19:15:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by BookfinderController#index as HTML
+  Rendered bookfinder/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 252ms (Views: 218.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.153.97 at 2013-09-27 19:15:39 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.153.97 at 2013-09-27 19:15:39 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.153.97 at 2013-09-27 19:15:39 -0400
+
+
+Started GET "/assets/bookfinder.js?body=1" for 172.17.153.97 at 2013-09-27 19:15:39 -0400
+
+
+Started GET "/assets/posts.js?body=1" for 172.17.153.97 at 2013-09-27 19:15:39 -0400
+
+
+Started GET "/assets/application.js?body=1" for 172.17.153.97 at 2013-09-27 19:15:39 -0400
+
+
+Started GET "/assets/" for 172.17.153.97 at 2013-09-27 19:15:39 -0400
+
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/shoabe/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/shoabe/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/shoabe/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/shoabe/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/shoabe/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/shoabe/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/routes/_table.html.erb (34.9ms)
+  Rendered /Users/shoabe/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (100.9ms)
+
+
+Started POST "/find" for 172.17.153.97 at 2013-09-27 19:15:45 -0400
+Processing by BookfinderController#find as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B8pLxqRn6+YOAIVllMsW7DThfF9qmLfMYjVGoWaRDD4=", "isbn"=>"9780545010221", "commit"=>"Search"}
+Completed 200 OK in 816ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/find/9780545010221" for 172.17.153.97 at 2013-09-27 19:23:58 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by BookfinderController#find as HTML
+  Parameters: {"id"=>"9780545010221"}
+Completed 200 OK in 312ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/find/9780545010221" for 172.17.153.97 at 2013-09-27 19:24:01 -0400
+Processing by BookfinderController#find as HTML
+  Parameters: {"id"=>"9780545010221"}
+Completed 200 OK in 201ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/find/9780545010221" for 172.17.153.65 at 2013-09-27 19:29:48 -0400
+Processing by BookfinderController#find as HTML
+  Parameters: {"id"=>"9780545010221"}
+Completed 200 OK in 277ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/find/9780545010221" for 172.17.153.65 at 2013-09-27 19:35:21 -0400
+Processing by BookfinderController#find as HTML
+  Parameters: {"id"=>"9780545010221"}
+Completed 200 OK in 300ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/create" for 172.17.153.65 at 2013-09-27 19:36:51 -0400
+Processing by PostsController#create as JSON
+  Parameters: {"post"=>{"device"=>"Android", "edition"=>"1", "cover_type"=>"1", "title"=>"Harryy Potterrr", "price"=>"1", "isbn"=>"9780545010221"}}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (42.6ms)[0m  [1mINSERT INTO `posts` (`cover_type`, `created_at`, `device`, `edition`, `isbn`, `price`, `title`, `updated_at`) VALUES (1, '2013-09-27 23:36:51', 'Android', 1, 9780545010221.0, 1.0, 'Harryy Potterrr', '2013-09-27 23:36:51')[0m
+  [1m[35m (26.5ms)[0m  COMMIT
+Completed 200 OK in 276ms (Views: 0.4ms | ActiveRecord: 176.1ms)
