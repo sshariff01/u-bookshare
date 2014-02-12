@@ -21,9 +21,13 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,12 +40,12 @@ import com.actionbarsherlock.app.SherlockFragment;
  
 public class FragmentTab1 extends SherlockFragment {
 	// Declare Variables
-	String endpointUrl = "http://9.26.186.182:3000";
-	String findAction = "/find/";
+	String endpointUrl = "http://192.168.1.102:3000/";
+	String findAction = "find/";
 	String isbnStr = new String();
 	String title, response = new String();
 	EditText mEdit;
-//	AutoCompleteTextView acTextView;
+//	AutoCompleteTextView acTextView;	
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,16 +59,48 @@ public class FragmentTab1 extends SherlockFragment {
             @Override
             public void onClick(View v) {
 				isbnStr = isbnACTextView.getText().toString();
+//				FragmentManager fragmentManager = getFragmentManager();  
+//				FragmentTransaction fragmentTransaction = fragmentManager  
+//				        .beginTransaction();  
+//				Fragment fragment3 = new Fragment();  
+//				fragmentTransaction.replace(R.id.inner_frag, fragment3);  
+//				fragmentTransaction.commit(); 
+				
         		searchByIsbn(v);
             }
 
 			private void searchByIsbn(View v) {
 				if (!isbnStr.isEmpty()) {
 					String urlStr = (endpointUrl + findAction + isbnStr);
+					String result = new String();
 					try {
-						new AsyncTaskApiRequest().execute(urlStr).get(1000, TimeUnit.MILLISECONDS);
+						AsyncTaskApiRequest searchTask = new AsyncTaskApiRequest();
+						result = searchTask.execute(urlStr).get();
+						searchTask.cancel(true);
+//							Intent searchIntent = new Intent(FragmentTab1.this.getActivity(), SearchActivity.class);
+//							searchIntent.putExtra("queryResult", result); //Optional parameters
+//							FragmentTab1.this.startActivity(searchIntent);
+							
+							
+//							Fragment innerFragment = new Fragment();
+//							FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+//							transaction.add(R.id.inner_frag, innerFragment).commit();
 					} catch (Exception e) {
 						e.printStackTrace();
+					}
+					
+					if (!result.isEmpty()) {
+						Log.i("RESULT", "Result came back with something!");
+						title = "Worked";
+						response = "Launch new activity here instead of dialog.";
+						DialogFragment newFragment = AlertDialogFragment.newInstance(title, response);
+					    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "searchsuccessdialog");
+					} else {
+						Log.i("RESULT", "Result came back empty");
+						title = "Kinda Worked";
+						response = "Result came back empty.";
+						DialogFragment newFragment = AlertDialogFragment.newInstance(title, response);
+					    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "searcherrordialog");
 					}
 				} else {
 					title = "Oops!";
@@ -72,7 +108,6 @@ public class FragmentTab1 extends SherlockFragment {
 					DialogFragment newFragment = AlertDialogFragment.newInstance(title, response);
 				    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "searcherrordialog");
 				}
-				
   			}
 		});
         
@@ -99,12 +134,12 @@ public class FragmentTab1 extends SherlockFragment {
 		protected String doInBackground(String... urls) {
 		    // Task starts executing.
 			String urlStr = endpointUrl + findAction + isbnStr;
-			String response = makeApiRequest(urlStr);
+			String result = makeApiRequest(urlStr);
 		
 		    // Execute HTTP requests here, with one url(urls[0]),
 		    // or many urls using the urls table
 		    // Save result in myresult
-			return response;
+			return result;
 		
 		}
 		
@@ -112,10 +147,18 @@ public class FragmentTab1 extends SherlockFragment {
             //Do modifications you want after everything is finished
             //Like re-enable the button, and/or hide a progressbar
             //And of course do what you want with your result got from http-req
-			title = "Result";
-			DialogFragment newFragment = AlertDialogFragment.newInstance(title, result);
-		    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "testdialog");
-		    Log.i("onPostExecute", "SHOW DIALOG");
+//			if (result.equals("Connect Exception")) {
+//				title = "Oops!";
+//        		response = "There was a problem connecting to the host. Please try again.";
+//    			DialogFragment newFragment = AlertDialogFragment.newInstance(title, response);
+//    		    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "searchconnectfailuredialog");
+//			} else {
+//				title = "Result";
+//				response = result;
+//				DialogFragment newFragment = AlertDialogFragment.newInstance(title, response);
+//			    newFragment.show(FragmentTab1.this.getSherlockActivity().getSupportFragmentManager(), "searchsuccessdialog");
+//			}
+			super.onPostExecute(result);
 		}
 		
 		private String makeApiRequest(String url) {
@@ -152,6 +195,7 @@ public class FragmentTab1 extends SherlockFragment {
 		        }
 		    
 		    } catch (Exception e) {
+		    	result = "Connect Exception";
 		    	e.printStackTrace();
 		    }
 		    

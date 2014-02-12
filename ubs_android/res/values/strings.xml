@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="gray">#868686</color>
     <color name="blue_button_border">#84d8ff</color>
-    
+
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
-
     <string name="app_name">UBookShare</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="Fragment3">Welcome to UBookShare! ...</string>
     <string name="search_isbn">Enter ISBN</string>
     <string name="search_author">Enter Author Name</string>
-    
     <string name="enter_book_title">Book Title</string>
     <string name="enter_book_price">Price</string>
     <string name="enter_book_isbn">ISBN-10 or ISBN-13</string>
-    
     <string name="country_prompt">Choose a country</string>
+
     <string-array name="cover_types_array">
         <item>Hard Cover</item>
         <item>Soft Cover</item>
     </string-array>
-    
+
+    <string name="title_activity_search">SearchActivity</string>
+
 </resources>

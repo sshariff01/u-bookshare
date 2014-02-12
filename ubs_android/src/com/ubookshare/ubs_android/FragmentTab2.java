@@ -40,7 +40,7 @@ import android.widget.Spinner;
 import com.actionbarsherlock.app.SherlockFragment;
  
 public class FragmentTab2 extends SherlockFragment {
-	String endpointUrl = "http://9.26.187.187:3000";
+	String endpointUrl = "http://192.168.0.50:3000";
 	String postAction = "/create";
 	String title, response;
  
